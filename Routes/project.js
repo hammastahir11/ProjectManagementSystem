@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var Project = require('../models/project');
 var Team = require('../models/team');
 var User = require('../models/user');
-var Task= require('../Models/task')
+var Task= require('../Models/task');
+const task = require('../Models/task');
 router.use(express.json());
 
 var db = "mongodb://localhost:27017/PMS";
@@ -132,7 +133,6 @@ router.post('/:id/teams', function(req, res) {
         }
     });
 });
-
 
 
 

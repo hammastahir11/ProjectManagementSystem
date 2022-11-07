@@ -70,9 +70,35 @@ router.get('/', function(req, res) {
 });
 
 
+//PUT/:taskid/:userid to Assign task to user
+
+router.put('/:taskid/:userid', function(req, res) {
+    Task.findByIdAndUpdate(req.params.taskid, {assignedTo:req.params.userid}, function(err, task) {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(task);
+            
+        }
+    });
+});
+
+
+router.put('/status/:taskid', function(req, res) {
+    Task.findByIdAndUpdate(req.params.taskid,req.body, {new: true},  function(err, task) {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+           res.json(task);
+        console.log(task);
+            
+        }
+    });
+});
 
 
 
+// {status:"In-Progress"},
 
 
 
